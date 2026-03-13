@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GetGround Home Screen - Optimized</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#59f425",
+                        "background-light": "#f6f8f5",
+                        "background-dark": "#0a0f08",
+                        "card-dark": "#161e14",
+                        "accent-muted": "#2c3928",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-transparent md:border-accent-muted/30">
+<div class="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6">
+<div class="flex items-center justify-between gap-8">
+<div class="flex items-center gap-2 shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl md:text-4xl">sports_cricket</span>
+<h1 class="text-xl md:text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">GetGround</h1>
+</div>
+<div class="hidden md:flex flex-1 max-w-2xl relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary">search</span>
+</div>
+<input class="block w-full pl-12 pr-12 py-3 bg-white dark:bg-accent-muted border border-slate-200 dark:border-transparent rounded-2xl text-base focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-card-dark text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 shadow-sm transition-all" placeholder="Search for professional grounds, turfs or indoor hubs in Nashik..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">tune</span>
+</div>
+</div>
+<div class="flex items-center gap-3 md:gap-6">
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold">Location</span>
+<span class="text-sm font-medium flex items-center gap-1">Nashik, MH <span class="material-symbols-outlined text-xs">expand_more</span></span>
+</div>
+<div class="hidden md:flex flex-col items-end border-l border-accent-muted/50 pl-6">
+<span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">My Account</span>
+<span class="text-sm font-medium">Rahul Sharma</span>
+</div>
+<div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent-muted flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-slate-100">person</span>
+</div>
+</div>
+</div>
+<div class="relative group mt-4 md:hidden">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary">search</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-3 bg-white dark:bg-accent-muted border-none rounded-xl text-sm focus:ring-2 focus:ring-primary text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 shadow-sm" placeholder="Search grounds in Nashik..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+<span class="material-symbols-outlined text-slate-400">tune</span>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-7xl mx-auto w-full flex-1 flex flex-col md:flex-row gap-8 px-4 md:px-6 py-6 mb-24 md:mb-0">
+<aside class="hidden md:block w-64 shrink-0 space-y-8">
+<div class="bg-card-dark rounded-2xl p-6 border border-accent-muted/30">
+<h3 class="text-xs uppercase tracking-widest text-primary font-bold mb-4">Your Summary</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-400">Next Match</span>
+<span class="text-sm font-bold text-white">Tomorrow</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-400">Bookings</span>
+<span class="text-sm font-bold text-white">12 Total</span>
+</div>
+<div class="pt-4 border-t border-accent-muted/30">
+<button class="w-full py-2 bg-accent-muted hover:bg-primary/20 text-primary text-xs font-bold rounded-lg transition-colors">VIEW DASHBOARD</button>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="text-sm font-bold tracking-tight">Filters</h3>
+<div class="space-y-4">
+<div>
+<label class="text-xs text-slate-500 uppercase tracking-widest font-bold block mb-3">Price Range</label>
+<input class="w-full accent-primary bg-accent-muted h-1 rounded-lg appearance-none cursor-pointer" type="range"/>
+<div class="flex justify-between mt-2 text-xs font-medium text-slate-400">
+<span>₹500</span>
+<span>₹5000+</span>
+</div>
+</div>
+<div>
+<label class="text-xs text-slate-500 uppercase tracking-widest font-bold block mb-3">Availability</label>
+<div class="space-y-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded border-accent-muted text-primary focus:ring-primary bg-transparent" type="checkbox"/>
+<span class="text-sm text-slate-300 group-hover:text-white transition-colors">Instant Booking</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-accent-muted text-primary focus:ring-primary bg-transparent" type="checkbox"/>
+<span class="text-sm text-slate-300 group-hover:text-white transition-colors">Night Lighting</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 min-w-0">
+<section>
+<div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 md:pb-6">
+<button class="flex items-center gap-2 px-6 py-2.5 bg-primary text-background-dark rounded-full text-sm font-bold shrink-0 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">grid_view</span>
+                    All Grounds
+                </button>
+<button class="flex items-center gap-2 px-6 py-2.5 bg-accent-muted text-slate-300 rounded-full text-sm font-medium shrink-0 hover:bg-primary/20 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">grass</span>
+                    Box Turf
+                </button>
+<button class="flex items-center gap-2 px-6 py-2.5 bg-accent-muted text-slate-300 rounded-full text-sm font-medium shrink-0 hover:bg-primary/20 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">stadium</span>
+                    Professional
+                </button>
+<button class="flex items-center gap-2 px-6 py-2.5 bg-accent-muted text-slate-300 rounded-full text-sm font-medium shrink-0 hover:bg-primary/20 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">home_work</span>
+                    Indoor Nets
+                </button>
+</div>
+</section>
+<section class="mt-4 md:mt-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl md:text-2xl font-bold tracking-tight">Featured Grounds</h2>
+<a class="text-primary text-sm font-bold hover:underline" href="#">View all grounds</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group relative bg-white dark:bg-card-dark rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-accent-muted/40 hover:border-primary/50 transition-all duration-300 flex flex-col">
+<div class="relative h-52 w-full overflow-hidden">
+<img alt="Professional Cricket Turf" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqaZT6UjOq-KlVORXShwy8m5ePAoLy7fVyhpNk5xjdkCJqMoehJxsLdRKDO-qHtyXc-m-UbsO83_rhwMPqPHRe3Y8tVzSUXiMIwNU6c7PV2_q1FPMTyUKm9BGIt2cvJ0415IOjHOQCinfyCzZrdSqZUSli7LI8GKZmAo__kAerc1lgn5XqFRV02IUrCAOZXG32iVMPPJLLZ63b6l_fLoq6s_UK6CEtcscLBADwW5tnEw3LKwrBX9osfpmp2vwL-RSfcw73V_Wj6zQ8"/>
+<div class="absolute top-3 right-3 bg-background-dark/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 border border-white/10">
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="text-xs font-bold text-white">4.8</span>
+</div>
+<div class="absolute top-3 left-3 bg-primary text-background-dark px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-lg">
+                            Premium
+                        </div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div class="min-w-0">
+<h3 class="text-lg font-bold truncate">Starlight Sports Arena</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    Gangapur Road • 2.4 km
+                                </p>
+</div>
+</div>
+<div class="mt-auto">
+<div class="flex items-center justify-between mb-4">
+<div class="flex flex-col">
+<span class="text-lg font-bold text-primary">₹1,200</span>
+<span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">per hour</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-accent-muted text-slate-400 hover:text-primary hover:border-primary transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-3.5 rounded-xl transition-all text-sm uppercase tracking-wider active:scale-[0.98]">
+                                Book Now
+                            </button>
+</div>
+</div>
+</div>
+<div class="group relative bg-white dark:bg-card-dark rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-accent-muted/40 hover:border-primary/50 transition-all duration-300 flex flex-col">
+<div class="relative h-52 w-full overflow-hidden">
+<img alt="Indoor Cricket Center" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAax7tH1I2GBv8RnBqQYMosazAGqHj3pNJwOiTIZR3lc4URrjo1bB0Tp5Z_dRxFTaT1hxpudKrEHS0XzkHk6SekBkkU3MQUbPl-FSJgfbb59lht7cdT81xeTFWGq0kbsgYOFllEYEH5-9H7XSa7_FpRUHUHNijz0FR5uO6O_Eo0aqTnFPh5fq0IZiz8ZADibQzKHG3mLkQ8frJ-G9ZnJcoGLmtLJxaUoa807A9fD7deIYIOTE1A3KCIx5zSLeR6P-UF5-_2k1dhKC18"/>
+<div class="absolute top-3 right-3 bg-background-dark/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 border border-white/10">
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="text-xs font-bold text-white">4.6</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div class="min-w-0">
+<h3 class="text-lg font-bold truncate">Nashik Indoor Hub</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    Indira Nagar • 4.1 km
+                                </p>
+</div>
+</div>
+<div class="mt-auto">
+<div class="flex items-center justify-between mb-4">
+<div class="flex flex-col">
+<span class="text-lg font-bold text-primary">₹800</span>
+<span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">per hour</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-accent-muted text-slate-400 hover:text-primary hover:border-primary transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-3.5 rounded-xl transition-all text-sm uppercase tracking-wider active:scale-[0.98]">
+                                Book Now
+                            </button>
+</div>
+</div>
+</div>
+<div class="group relative bg-white dark:bg-card-dark rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-accent-muted/40 hover:border-primary/50 transition-all duration-300 flex flex-col">
+<div class="relative h-52 w-full overflow-hidden">
+<img alt="Lush green outdoor ground" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb2-UruGrVZ4qPvXx5NhaTYc6Oxy3JhUj_TMCrb-BwqXJKNMLttbdv_aA9-gTtpCCaVgjtCBt9hB3cckChVYjnkxG0j-6-uAaqHi0f7UVWK9fB_WZ6PpSyUJdxonXvM2R3AC6iaxQstR5XnzxrbljqpE0op-D81PZoy135sg97pazMT57tH5HMx26iFBEk0157v3V3jSGU3dB5_NU7nbWfVhbxlTT8Ju06IjSvdn8Beh39_S1eItCcwqnIpSP7mnWMaGzPTnoGtvtp"/>
+<div class="absolute top-3 right-3 bg-background-dark/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 border border-white/10">
+<span class="material-symbols-outlined text-primary text-sm fill-1">star</span>
+<span class="text-xs font-bold text-white">4.9</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div class="min-w-0">
+<h3 class="text-lg font-bold truncate">Legends County Ground</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    Pathardi Phata • 5.8 km
+                                </p>
+</div>
+</div>
+<div class="mt-auto">
+<div class="flex items-center justify-between mb-4">
+<div class="flex flex-col">
+<span class="text-lg font-bold text-primary">₹2,500</span>
+<span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">per hour</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-accent-muted text-slate-400 hover:text-primary hover:border-primary transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-3.5 rounded-xl transition-all text-sm uppercase tracking-wider active:scale-[0.98]">
+                                Book Now
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<nav class="md:hidden fixed bottom-0 w-full bg-white/90 dark:bg-background-dark/95 backdrop-blur-xl border-t border-slate-200 dark:border-accent-muted px-6 pb-8 pt-3 z-[60]">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Explore</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Saved</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+</a>
+</div>
+</nav>
+<footer class="hidden md:block bg-card-dark border-t border-accent-muted/30 py-8">
+<div class="max-w-7xl mx-auto px-6 flex justify-between items-center text-slate-500 text-sm">
+<div class="flex items-center gap-4">
+<span class="font-bold text-slate-300">© 2024 GetGround</span>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary">language</span>
+<span class="font-medium">English (IN)</span>
+</div>
+</div>
+</footer>
+
+</body></html>

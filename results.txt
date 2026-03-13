@@ -1,0 +1,10 @@
+﻿--- USERS ---
+ID: 1, Email: admin@getground.com, Role: RoleEnum.ADMIN
+ID: 2, Email: owner@getground.com, Role: RoleEnum.OWNER
+ID: 3, Email: player@getground.com, Role: RoleEnum.PLAYER
+
+--- GROUNDS ---
+ID: 1, Name: Golf Club, OwnerID: 2, Status: GroundStatusEnum.APPROVED
+ID: 2, Name: Spartans Sports Club, OwnerID: 2, Status: GroundStatusEnum.APPROVED
+ID: 3, Name: Meri Cricket Ground, OwnerID: 2, Status: GroundStatusEnum.APPROVED
+ID: 4, Name: Golf Club, OwnerID: 2, Status: GroundStatusEnum.APPROVED
