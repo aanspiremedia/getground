@@ -1,28 +1,66 @@
-version: '3.8'
-
 services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: getground
+      POSTGRES_PASSWORD: getground123
+      POSTGRES_DB: getground_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U getground -d getground_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   redis:
     image: redis:alpine
+    restart: always
     ports:
       - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
-    build: ./backend
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    image: getground-backend:latest
+    restart: always
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=sqlite:///./sql_app.db
-      - REDIS_URL=redis://redis:6379/0
+      DATABASE_URL: postgresql://getground:getground123@postgres:5432/getground_db
+      REDIS_URL: redis://redis:6379/0
+      # Use localhost:8000 as default to ensure browser can hit it
+      # For SSR, we might need another strategy, but for this dev setup it works
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api 
     depends_on:
-      - redis
-    volumes:
-      - ./backend:/app
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Default to localhost for browser-side calls
+        NEXT_PUBLIC_API_URL: http://localhost:8000/api
+    image: getground-frontend:latest
+    restart: always
     ports:
       - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000/api
     depends_on:
-      - backend
+      backend:
+        condition: service_started
+
+volumes:
+  pgdata:

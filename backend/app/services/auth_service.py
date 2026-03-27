@@ -12,6 +12,7 @@ class AuthService:
         """
         Generates a 6-digit OTP, stores it in Redis with 5 minutes TTL, and limits attempts.
         """
+        email = email.lower().strip()
         # Rate limit check (e.g., max 3 requests per 5 minutes)
         attempts_key = f"otp_attempts:{email}"
         attempts = self.redis.get(attempts_key)
@@ -36,6 +37,7 @@ class AuthService:
         """
         Verifies the submitted OTP against Redis.
         """
+        email = email.lower().strip()
         otp_key = f"otp:{email}"
         stored_otp = self.redis.get(otp_key)
         
@@ -45,10 +47,10 @@ class AuthService:
         # Redis returns bytes - must decode to string before comparison
         stored_otp_str = stored_otp.decode('utf-8') if isinstance(stored_otp, bytes) else stored_otp
             
-        if stored_otp_str == submitted_otp.strip():
+        if stored_otp_str.strip() == submitted_otp.strip():
             # Clear on success
             self.redis.delete(otp_key)
             self.redis.delete(f"otp_attempts:{email}")
             return True
-            
+        
         return False

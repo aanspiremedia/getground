@@ -16,12 +16,14 @@ class User(Base):
     email = Column(String, unique=True, index=True, nullable=False) # Primary auth for now
     phone_number = Column(String, unique=True, index=True, nullable=True) # Optional initially
     name = Column(String, nullable=True)
+    profile_picture = Column(String, nullable=True)
     role = Column(Enum(RoleEnum), default=RoleEnum.PLAYER)
     created_at = Column(DateTime(timezone=True), server_default=text('CURRENT_TIMESTAMP'))
 
     # Relationships
     grounds = relationship("Ground", back_populates="owner")
     bookings = relationship("Booking", back_populates="user")
+    booking_sessions = relationship("BookingSession", back_populates="user")
     owner_requests = relationship("OwnerRequest", back_populates="user")
 
 class OwnerRequest(Base):

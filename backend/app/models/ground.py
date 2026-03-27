@@ -31,6 +31,7 @@ class Ground(Base):
     slots = relationship("Slot", back_populates="ground")
     pricing = relationship("GroundPricing", back_populates="ground")
     bookings = relationship("Booking", back_populates="ground")
+    booking_sessions = relationship("BookingSession", back_populates="ground")
     blocks = relationship("SlotBlock", back_populates="ground")
 
 class GroundImage(Base):
@@ -62,6 +63,13 @@ class PricingCategoryEnum(str, enum.Enum):
     MATCH = "MATCH"
     TOURNAMENT = "TOURNAMENT"
     CORPORATE = "CORPORATE"
+    EVENT = "EVENT"
+    FULL_DAY = "FULL_DAY"
+
+class DurationTypeEnum(str, enum.Enum):
+    HOURLY = "HOURLY"
+    FIRST_HALF = "FIRST_HALF"
+    SECOND_HALF = "SECOND_HALF"
     FULL_DAY = "FULL_DAY"
 
 class GroundPricing(Base):
@@ -70,6 +78,7 @@ class GroundPricing(Base):
     id = Column(Integer, primary_key=True, index=True)
     ground_id = Column(Integer, ForeignKey("grounds.id"), nullable=False)
     category = Column(Enum(PricingCategoryEnum), nullable=False)
+    duration_type = Column(Enum(DurationTypeEnum), nullable=False, default=DurationTypeEnum.HOURLY)
     price = Column(Numeric(10, 2), nullable=False)
 
     # Relationships

@@ -59,6 +59,11 @@ def verify_otp(request: VerifyOTPRequest, db: Session = Depends(get_db)):
         }
     }
 
+class UpdateProfileRequest(BaseModel):
+    name: Optional[str] = None
+    phone_number: Optional[str] = None
+    profile_picture: Optional[str] = None
+
 @router.get("/me")
 def get_user_profile(current_user: User = Depends(get_current_user)):
     return {
@@ -66,8 +71,25 @@ def get_user_profile(current_user: User = Depends(get_current_user)):
         "email": current_user.email,
         "name": current_user.name,
         "phone_number": current_user.phone_number,
+        "profile_picture": current_user.profile_picture,
         "role": current_user.role.value
     }
+
+@router.put("/profile")
+def update_user_profile(
+    request: UpdateProfileRequest, 
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    if request.name is not None:
+        current_user.name = request.name
+    if request.phone_number is not None:
+        current_user.phone_number = request.phone_number
+    if request.profile_picture is not None:
+        current_user.profile_picture = request.profile_picture
+        
+    db.commit()
+    return {"message": "Profile updated successfully"}
 
 @router.get("/dev-otp/{email}")
 def get_dev_otp(email: str):

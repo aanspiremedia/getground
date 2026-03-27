@@ -1,0 +1,47 @@
+# 🚀 GETGROUND: DOCKER-BASED PROJECT STARTUP GUIDE
+
+## 📋 Prerequisites
+*   **Docker Desktop**: Ensure Docker Desktop is installed and running on your Windows machine.
+
+---
+
+## 🏗️ 1. Start the Project (Run from Root Folder)
+Open a terminal in the project root folder (`getground/`) and run:
+
+```bash
+docker-compose up --build
+```
+*   This command will build the images for Frontend and Backend.
+*   It will automatically start PostgreSQL, Redis, and all project services.
+*   Once it outputs "Application startup complete", the project is LIVE.
+
+### 🌐 Accessing the App
+*   **Frontend (Main App)**: [http://localhost:3000](http://localhost:3000)
+*   **Backend (API Docs)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+---
+
+## 🛑 2. Close the Program (After Finishing Work)
+To safely stop all services and free up system resources, run:
+
+```bash
+docker-compose down
+```
+*   This stops the running containers and removes the virtual network.
+*   Your database data is safely stored in a Docker volume (`getground_pgdata`) and will persist for your next session.
+
+---
+
+## 🔄 3. Update the Program
+Whenever you make significant code changes or pull updates:
+1.  Stop the program (`docker-compose down`).
+2.  Start with a build to re-generate the images:
+    ```bash
+    docker-compose up --build
+    ```
+
+---
+
+### 💡 Troubleshooting
+*   **Port in Use**: If port 3000 or 8000 is busy, ensure you don't have other uvicorn or npm processes running locally outside of Docker.
+*   **Clean Start**: To reset the database completely, use: `docker-compose down -v` (⚠️ This deletes ALL stored data).
